@@ -1,6 +1,8 @@
 Shelfari::Application.routes.draw do
+  match 'books/search/:query' => 'books#search'
+  
   resources :books
-
+  root :to => 'books#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

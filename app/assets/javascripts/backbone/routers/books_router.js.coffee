@@ -1,14 +1,17 @@
 class Shelfari.Routers.BooksRouter extends Backbone.Router
   initialize: (options) ->
     @books = new Shelfari.Collections.BooksCollection()
+    @searchbooks = new Shelfari.Collections.SearchResultsCollection()
     @books.reset options.books
+    
 
   routes:
     "new"      : "newBook"
     "index"    : "index"
+    "search"   : "search"
     ":id/edit" : "edit"
     ":id"      : "show"
-    ".*"        : "index"
+    ".*"       : "index"
 
   newBook: ->
     @view = new Shelfari.Views.Books.NewView(collection: @books)
@@ -28,4 +31,11 @@ class Shelfari.Routers.BooksRouter extends Backbone.Router
     book = @books.get(id)
 
     @view = new Shelfari.Views.Books.EditView(model: book)
+    $("#books").html(@view.render().el)
+
+  search: ->
+    console.log ('in router search')
+    console.log (@searchbooks)
+    @view = new Shelfari.Views.Books.SearchView(books: @searchbooks)
+    console.log (@view.render())
     $("#books").html(@view.render().el)

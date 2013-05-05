@@ -82,4 +82,10 @@ class BooksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #Search Books
+  def search
+    @book = Book.find(params[:query])
+  end
 end
+

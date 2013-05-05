@@ -9,3 +9,5 @@ window.Shelfari =
   Collections: {}
   Routers: {}
   Views: {}
+
+ window.Shelfari.vent = _.extend({}, Backbone.Events)
