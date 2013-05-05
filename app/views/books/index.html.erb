@@ -1,0 +1,9 @@
+<div id="books"></div>
+
+<script type="text/javascript">
+  $(function() {
+    // Shelfari is the app name
+    window.router = new Shelfari.Routers.BooksRouter({books: <%= @books.to_json.html_safe -%>});
+    Backbone.history.start();
+  });
+</script>
