@@ -9,8 +9,11 @@ class Shelfari.Views.Books.SearchView extends Backbone.View
   initialize: () ->
      console.log ('In search view initialize')
      Shelfari.vent.bind("search:results", this.showResults, this);
-    
+
+
   showResults: (results) ->
+      console.log("In showResults")
+      console.log(results)
       @collection = results
       @render()
     
@@ -19,7 +22,11 @@ class Shelfari.Views.Books.SearchView extends Backbone.View
       $(@el).html(@template())
 
       return this
-    
-  searchResults: () ->
-    SearchResultsCollection.search($("#searchParam"));
+      
+  searchResults: (e) ->
+    console.log ('In search view searchResults')
+    e.preventDefault()
+    console.log ($("#searchParam").val())
+    resultCollection = new Shelfari.Collections.SearchResultsCollection() 
+    resultCollection.search($("#searchParam").val());
     #@showResults(results)

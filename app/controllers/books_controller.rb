@@ -84,8 +84,18 @@ class BooksController < ApplicationController
   end
 
   #Search Books
-  def search
-    @book = Book.find(params[:query])
-  end
+  def search 
+     query = params[:query]
+ 
+    unless query.blank?
+      books_table = Book.arel_table
+      matching_books = Book.where(books_table[:name].matches("%#{query}%"))
+    else
+      matching_books = []
+    end
+ 
+    render json: matching_books
+  end 
+  
 end
 

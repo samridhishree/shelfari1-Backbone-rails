@@ -2,8 +2,7 @@ class Shelfari.Routers.BooksRouter extends Backbone.Router
   initialize: (options) ->
     @books = new Shelfari.Collections.BooksCollection()
     @searchbooks = new Shelfari.Collections.SearchResultsCollection()
-    @books.reset options.books
-    
+    @books.reset options.books    
 
   routes:
     "new"      : "newBook"

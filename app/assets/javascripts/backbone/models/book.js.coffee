@@ -11,11 +11,13 @@ class Shelfari.Collections.BooksCollection extends Backbone.Collection
   url: '/books'
 
 class Shelfari.Collections.SearchResultsCollection extends Backbone.Collection
-  url: '/search'
-    #"/search/" + @searchTerm
+  console.log("In SearchResultsCollection class")
+  url: ->
+    "books/search/" + @searchTerm
   
+  console.log("Before search function call")
   search: (searchTerm) ->
-    results = new SearchResults()
+    results = new SearchResultsCollection()
     results.searchTerm = searchTerm
     results.fetch
       success: ->
@@ -23,3 +25,4 @@ class Shelfari.Collections.SearchResultsCollection extends Backbone.Collection
 
       error: (collection, response) ->
         Shelfari.vent.trigger "search:error", response
+  console.log("After the search function")
