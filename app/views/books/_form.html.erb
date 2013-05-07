@@ -20,8 +20,10 @@
     <%= f.text_field :author %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
-    <%= f.check_box :status %>
+    <%= radio_button_tag :status,'Read', :checked => true %>
+    <%= f.label :status, "Read", :value => "Read" %>
+    <%= radio_button_tag :status,'Not Read' %>
+    <%= f.label :status, "Not Read", :value => "Not Read" %>
   </div>
   <div class="actions">
     <%= f.submit %>

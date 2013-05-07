@@ -11,7 +11,7 @@ class Shelfari.Collections.BooksCollection extends Backbone.Collection
   url: '/books'
 
 class Shelfari.Collections.SearchResultsCollection extends Backbone.Collection
-  console.log("In SearchResultsCollection class")
+  #model: Shelfari.Models.Books
   url: ->
     "books/search/" + @searchTerm
   

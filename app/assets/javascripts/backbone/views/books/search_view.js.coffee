@@ -14,8 +14,17 @@ class Shelfari.Views.Books.SearchView extends Backbone.View
   showResults: (results) ->
       console.log("In showResults")
       console.log(results)
-      @collection = results
+      # @collection = results
       @render()
+
+      for book in results.models
+        @addOne book
+
+  addOne: (book) =>
+    console.log("In search view addOne")
+    console.log(book)
+    view = new Shelfari.Views.Books.BookView({model : book})
+    @$("tbody").append(view.render().el)
     
   render: () ->
       console.log ('In search view render')
@@ -27,6 +36,7 @@ class Shelfari.Views.Books.SearchView extends Backbone.View
     console.log ('In search view searchResults')
     e.preventDefault()
     console.log ($("#searchParam").val())
-    resultCollection = new Shelfari.Collections.SearchResultsCollection() 
+    resultCollection = new Shelfari.Collections.SearchResultsCollection()
+    console.log(resultCollection) 
     resultCollection.search($("#searchParam").val());
     #@showResults(results)
