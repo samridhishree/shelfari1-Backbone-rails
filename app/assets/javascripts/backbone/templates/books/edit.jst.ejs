@@ -1,42 +1,56 @@
 <div class = "center hero-unit">
   <h1>Edit book</h1>
 
-  <form id="edit-book" name="book">
-    <div class="field">
-      <label for="name"> Name</label>
-      <input type="text" name="name" id="name" value="<%= name %>" >
+  <form id="edit-book" name="book" class="form-horizontal">
+    <div class="control-group">
+      <div class="field">
+        <label for="name" class="control-label"> Name</label>
+        <div class="controls">
+          <input type="text" name="name" id="name" value="<%= name %>" >
+        </div>
+      </div>
     </div>
 
-    <div class="field">
-      <label for="author"> Author</label>
-      <input type="text" name="author" id="author" value="<%= author %>" >
+    <div class="control-group">
+      <div class="field">
+        <label for="author" class="control-label"> Author</label>
+        <div class="controls">
+          <input type="text" name="author" id="author" value="<%= author %>" >
+        </div>
+      </div>
     </div>
 
-    <div>
-      <label for="status"> Have you read this book? </label>
-      <select name="status" id="status">
-       <% if (status == null) { %>
-         <option selected></option>
-       <% } %>
-       <% if (status == "Read") { %>
-         <option value="Read" selected>Read</option>
-       <% } else { %>
-         <option value="Read">Read</option>
-       <% } %>
+    <div class="control-group">
+      <label for="status" class="control-label"> Have you read this book? </label>
+      <div class="controls">
+        <select name="status" id="status">
+         <% if (status == null) { %>
+           <option selected></option>
+         <% } %>
+         <% if (status == "Read") { %>
+           <option value="Read" selected>Read</option>
+         <% } else { %>
+           <option value="Read">Read</option>
+         <% } %>
 
-       <% if (status == "Not Read") { %>
-         <option value="Not Read" selected>Not Read</option>
-       <% } else { %>
-         <option value="Not Read">Not Read</option>
-       <% } %>
-      </select>
+         <% if (status == "Not Read") { %>
+           <option value="Not Read" selected>Not Read</option>
+         <% } else { %>
+           <option value="Not Read">Not Read</option>
+         <% } %>
+        </select>
+      </div>
     </div>
 
-    <div class="actions">
-      <input type="submit" value="Update Book" />
+    <div class="control-group">
+      <div class="actions">
+        <div class="controls">
+          <input type="submit" value="Update Book" />
+        </div>
+      </div>
     </div>
 
   </form>
 
-  <a href="#/index" class="btn btn-primary">Back</a>
+  <a href="#/index" class="btn btn-link btn-large pull-right">Back</a>
 </div>

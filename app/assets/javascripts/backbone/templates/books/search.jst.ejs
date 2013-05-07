@@ -1,14 +1,22 @@
 <div class = "center hero-unit">
 <h1>Search book</h1>
 
-<form id="search-book" name="searchBook">
-  <div class="field">
-    <label for="name"> Name</label>
-    <input type="text" name="name" id="searchParam" value="<%= name %>" >
+<form id="search-book" name="searchBook" class="form-horizontal">
+  <div class="control-group">
+    <div class="field">
+      <label for="name" class="control-label"> Name</label>
+      <div class="controls">
+        <input type="text" name="name" id="searchParam" value="<%= name %>" >
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <input type="submit" value="Search Book" />
+  <div class="control-group">
+    <div class="actions">
+      <div class="controls">
+        <input type="submit" value="Search Book" />
+      </div>
+    </div>
   </div>
 
 </form>
@@ -26,5 +34,5 @@
   </tr>
 </table>
 
-<a href="#/index" class="btn btn-primary">Back</a>
+<a href="#/index" class="btn btn-link btn-large pull-right">Back</a>
 </div>
