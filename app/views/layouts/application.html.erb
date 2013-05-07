@@ -7,8 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+   <div class="container">
+     <a href="#" id="logo">Shelfari</a>
+	<nav>
+		<ul class="nav pull-right">
+		  <li><a href="#/new">New Book</a></li>
+		  <li><a href="#/search">Search Book</a></li>
+		</ul>
+	</nav>
+   </div>
+  </div>
+</header>
+<div class = "container">
+	<%= yield %>
+</div>
 
-<%= yield %>
+<footer class="footer">
+  <small>
+    <p>
+    	Developed by Samridhi Shree Choudhary
+    </p>
+  </small>
+  <nav>
+    <ul>
+      <li><a href="https://github.com/samridhishree/shelfari1-Backbone-rails">Github</a></li>
+      <li><a href="https://github.com/samridhishree">Other Repositories</a></li>
+    </ul>
+  </nav>
+</footer>
 
 </body>
 </html>
