@@ -11,9 +11,24 @@
     <input type="text" name="author" id="author" value="<%= author %>" >
   </div>
 
-  <div class="field">
-    <label for="status"> status:</label>
-    <input type="text" name="status" id="status" value="<%= status %>" >
+  <div>
+    <label for="status"> Have you read this book? </label>
+    <select name="status" id="status">
+     <% if (status == null) { %>
+       <option selected></option>
+     <% } %>
+     <% if (status == "Read") { %>
+       <option value="Read" selected>Read</option>
+     <% } else { %>
+       <option value="Read">Read</option>
+     <% } %>
+
+     <% if (status == "Not Read") { %>
+       <option value="Not Read" selected>Not Read</option>
+     <% } else { %>
+       <option value="Not Read">Not Read</option>
+     <% } %>
+    </select>
   </div>
 
   <div class="actions">
